@@ -1,0 +1,72 @@
+[
+    {
+        "id": 0,
+        "category": "Science",
+        "question": "What is the chemical symbol for gold?",
+        "choices": ["Au", "Ag", "Cu", "Fe"],
+        "answer": "Au"
+    },
+    {
+        "id": 1,
+        "category": "History",
+        "question": "In which year did World War II end?",
+        "choices": ["1945", "1939", "1941", "1943"],
+        "answer": "1945"
+    },
+    {
+        "id": 2,
+        "category": "Science",
+        "question": "What is the symbol for the element carbon?",
+        "choices": ["C", "Co", "Ca", "Cu"],
+        "answer": "C"
+    },
+    {
+        "id": 3,
+        "category": "History",
+        "question": "Who was the first President of the United States?",
+        "choices": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "John Adams"],
+        "answer": "George Washington"
+    },
+    {
+        "id": 4,
+        "category": "Science",
+        "question": "What is the largest planet in our solar system?",
+        "choices": ["Jupiter", "Saturn", "Neptune", "Uranus"],
+        "answer": "Jupiter"
+    },
+    {
+        "id": 5,
+        "category": "History",
+        "question": "Which country was home to the ancient civilization of the Aztecs?",
+        "choices": ["Mexico", "Egypt", "Greece", "China"],
+        "answer": "Mexico"
+    },
+    {
+        "id": 6,
+        "category": "Science",
+        "question": "What is the chemical symbol for oxygen?",
+        "choices": ["O", "O2", "O3", "Ox"],
+        "answer": "O"
+    },
+    {
+        "id": 7,
+        "category": "History",
+        "question": "Who wrote the novel \"Pride and Prejudice\"?",
+        "choices": ["Jane Austen", "Charles Dickens", "Mark Twain", "F. Scott Fitzgerald"],
+        "answer": "Jane Austen"
+    },
+    {
+        "id": 8,
+        "category": "Science",
+        "question": "What is the process by which plants convert sunlight into energy called?",
+        "choices": ["Photosynthesis", "Respiration", "Digestion", "Transpiration"],
+        "answer": "Photosynthesis"
+    },
+    {
+        "id": 9,
+        "category": "History",
+        "question": "Which famous scientist developed the theory of relativity?",
+        "choices": ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Marie Curie"],
+        "answer": "Albert Einstein"
+    }
+]
