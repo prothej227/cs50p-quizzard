@@ -4,9 +4,10 @@ import pandas as pd
 import random, json, os
 from datetime import datetime
 from certificate import Certificate
+import sys
 
 class Results:
-    def __init__(self, user_data, correct_answer):
+    def __init__(self, user_data, correct_answer) -> None:
         self.username = user_data['user_name']
         self.ua = user_data['user_answers']
         self.ca = correct_answer
@@ -15,6 +16,7 @@ class Results:
     def score(self) -> int:
         n_correct_ans = len([j for j in self.check_results() if j])
         return int(round(n_correct_ans/len(self.ca), 2) * 100)
+
 
     def check_results(self) -> list:
         ret_list = list()
@@ -36,12 +38,12 @@ class Results:
 
         table = tabulate(df, headers='keys', tablefmt='grid')
         
-        print("\n")
-        print("-" * 14 + " Results " + "-" * 14)
-        print(table)
-        print("-" * 12 + f" Score : {self.score}% " + "-" * 12)
+        # print("\n")
+        # print("-" * 14 + " Results " + "-" * 14)
+        # print(table)
+        # print("-" * 12 + f" Score : {self.score}% " + "-" * 12)
         
-        
+        print(f"\n{'-' * 14} Results {'-' * 14}\n{table}\n{'-' * 12} Score : {self.score}% {'-' * 12}")
 
     def show_certificate_dialog(self):
 
@@ -76,24 +78,13 @@ class Results:
         with open("data/scores.json", "w") as f:
             json.dump(scores, f)
 
-
 class QuestionDashboard:
 
-    def __init__(self, username : str, questions : list) -> None:
-        self._username = username
+    def __init__(self, username, questions):
+        self.username = username
         self.questions = questions
-        self.current_question = 0
-    
-    @property
-    def username(self):
-        return self._username
-    
-    @username.setter
-    def username(self, value):
-        self._username = value
 
-    def show_question_and_gen_userdata(self) -> list:
-
+    def show_question_and_gen_userdata(self):
         _userdata = {
             "user_name" : self.username,
             "user_answers" : []
@@ -102,20 +93,25 @@ class QuestionDashboard:
         for i, question in enumerate(self.questions):
             str_head = "-" * int(len(question['question'])/2) + f" Question No. {i+1} " + "-" * int(len(question['question'])/2) 
             print(str_head)
-            self.menu_options = [
-                {
-                    'type': 'list',
-                    'name': 'choice',
-                    'message': question['question'],
-                    'choices': question['choices']
-                },
-            ]
-            answers = prompt(self.menu_options)
-            _userdata['user_answers'].append(answers['choice'])
+            if sys.stdin.isatty():  
+                self.menu_options = [
+                    {
+                        'type': 'list',
+                        'name': 'choice',
+                        'message': question['question'],
+                        'choices': question['choices']
+                    },
+                ]
+                answers = prompt(self.menu_options)
+                _userdata['user_answers'].append(answers['choice'])
+            else:  
+                _userdata['user_answers'].append(question['choices'][0])  
+
             print("-" * len(str_head) + "\n")
+
         return _userdata
 
-# Test program here   
+
 if __name__ == "__main__":
 
     with open('./data/questions.json') as f:
