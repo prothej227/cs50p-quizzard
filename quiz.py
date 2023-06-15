@@ -38,11 +38,6 @@ class Results:
 
         table = tabulate(df, headers='keys', tablefmt='grid')
         
-        # print("\n")
-        # print("-" * 14 + " Results " + "-" * 14)
-        # print(table)
-        # print("-" * 12 + f" Score : {self.score}% " + "-" * 12)
-        
         print(f"\n{'-' * 14} Results {'-' * 14}\n{table}\n{'-' * 12} Score : {self.score}% {'-' * 12}")
 
     def show_certificate_dialog(self):
