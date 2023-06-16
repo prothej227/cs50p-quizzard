@@ -1,12 +1,13 @@
-from PyInquirer import prompt, Separator
-from tabulate import tabulate
+from PyInquirer import prompt
 import pandas as pd
 import random, json, os
 from datetime import datetime
 from certificate import Certificate
+from tabulate import tabulate
 import sys
 
 class Results:
+
     def __init__(self, user_data, correct_answer) -> None:
         self.username = user_data['user_name']
         self.ua = user_data['user_answers']
@@ -86,8 +87,12 @@ class QuestionDashboard:
         }
 
         for i, question in enumerate(self.questions):
+
+            _cent_width = len(question['question']) + 18
             str_head = "-" * int(len(question['question'])/2) + f" Question No. {i+1} " + "-" * int(len(question['question'])/2) 
-            print(str_head)
+            print(str_head.center(_cent_width))
+            print(f"~# ---- Category: {question['category']} ---- #~".center(_cent_width))
+
             if sys.stdin.isatty():  
                 self.menu_options = [
                     {
@@ -102,7 +107,7 @@ class QuestionDashboard:
             else:  
                 _userdata['user_answers'].append(question['choices'][0])  
 
-            print("-" * len(str_head) + "\n")
+            print(str("-" * len(str_head)).center(_cent_width) + "\n")
 
         return _userdata
 

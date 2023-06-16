@@ -1,5 +1,5 @@
 import pytest
-from app import QuizzardApp
+from project import QuizzardApp
 from quiz import QuestionDashboard, Results
 import hashlib, random, string, os
 import pandas as pd
@@ -34,7 +34,7 @@ def test_question_dashboard(monkeypatch):
 
     mock_input = 'Au'
 
-    def mock_prompt(questions : list):
+    def mock_prompt(questions:list):
         assert questions[0]['question'] == "What is the chemical symbol for gold?" 
         return {'choice': mock_input}
 
@@ -46,8 +46,6 @@ def test_question_dashboard(monkeypatch):
 
 
 def test_results_output_perfect_answers(capfd):
-
-
 
     res = Results(user_data={
         "user_name" : "Journel Cabrillos",
@@ -119,7 +117,7 @@ def test_results_score():
 
     assert test_score == res.score
 
-def test_scores_if_dumped():
+def test_results_dump_score():
     
     _isUpdated = bool()
     gen_random_alphanum = lambda length: ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
@@ -134,28 +132,28 @@ def test_scores_if_dumped():
     
     prev_cksum = _calc_checksum("./data/scores.json")
 
-    ### Exec updation actions here
-    test_results = Results({"user_name":gen_random_alphanum(5), "user_answers":['1', '1', '1', '1']}, ['1', '1', '1', '1'])
-    test_results.dump_scores()                  
+    # Add test actions that enforces a score update
+    test_results = Results(
+        user_data={
+            "user_name":gen_random_alphanum(5), 
+            "user_answers":['1', '1', '1', '1']
+            }, 
+        correct_answer=['1', '1', '1', '1']
+    )
 
+    test_results.dump_scores()                  
     new_cksum = _calc_checksum("./data/scores.json")
 
     assert new_cksum != prev_cksum 
 
-def test_certs_if_exist():
+def test_show_certificate():
 
     from datetime import datetime
     gen_random_alphanum = lambda length: ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
     test_user_name = gen_random_alphanum(5)
-    
+
     test_cert_path = f"certs/{test_user_name.lower().strip().replace(' ', '')}_{datetime.now().strftime('%m%d%Y')}.pdf"
     test_results = Results({"user_name": test_user_name, "user_answers":['1', '1', '1', '1']}, ['1', '1', '1', '1'])
     test_results.show_certificate_dialog()
 
     assert os.path.isfile(test_cert_path) == True
-    
-
-
-    
-
-

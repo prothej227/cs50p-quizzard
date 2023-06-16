@@ -47,11 +47,12 @@ class QuizzardApp:
         print(f"\nGood luck, {self.user_name}!\n")
         with open('./data/questions.json') as f:
             q1 = json.loads(f.read())
-    
+
+        q1 = random.sample(list(q1), 10)
+
         for question in q1:
             random.shuffle(question['choices'])
 
-        #q1 = q1[:1]
         NewQuestionBoard = QuestionDashboard(self.user_name, q1)
         user_data = NewQuestionBoard.show_question_and_gen_userdata()
 
@@ -75,7 +76,7 @@ class QuizzardApp:
 
         if response['choice'] == 'Yes':
 
-            # Essential methods to be executed
+            # !Important methods to that nees to be executed
             self.result.show()
             self.result.show_certificate_dialog()
 
@@ -129,7 +130,6 @@ class QuizzardApp:
 
         except:
             print("No scores data.")
-
 
 
 # Entry point of the program
