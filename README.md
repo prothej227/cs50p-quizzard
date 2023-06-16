@@ -56,21 +56,17 @@ The following is a list of dependencies required to run this project:
 
 #### File Structure
 
-
-
-> `🌳 root_dir`
-> `├── 📁 assets`
-> `│   └── 🖼️ background.png`
-> `├── 📁 certs`
-> `├── 📁 data`
-> `│   ├── 📄 questions.json`
-> `│   └── 📄 scores.json`
-> `├── 📄 certificate.py`
-> `├── 📄 project.py`
-> `├── 📄 quiz.py`
-> `└── 📄 test_project.py`
-
-
+🌳 root_dir
+├── 📁 assets
+│   └── 🖼️ background.png
+├── 📁 certs
+├── 📁 data
+│   ├── 📄 questions.json
+│   └── 📄 scores.json
+├── 📄 certificate.py
+├── 📄 project.py
+├── 📄 quiz.py
+└── 📄 test_project.py
 
 To run this project, you need to install the aforementioned dependencies. Open the terminal and type the following command:
 
