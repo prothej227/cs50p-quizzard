@@ -26,7 +26,7 @@ A user with a score ≤ 80 will receive a certificate after confirming the promp
 
 ##### View High Scores
 
-<img src="docs/high_scores.png" alt="high_scores" style="zoom: 80%;" />
+<img src="docs/high_scores.PNG" alt="high_scores" style="zoom: 80%;" />
 
 This feature displays the historical ranking of users based on their scores. Scores are data that are written in `scores.json` after every successful session or after a user finishes the game. When executed, the file `scores.json` is loaded as a Python dictionary, converted to a data frame, and then formatted as a table using the tabulate library.
 
@@ -56,26 +56,23 @@ The following is a list of dependencies required to run this project:
 
 ##### File Structure
 
-```
-arduinoCopy code🌳 root_dir
-├── 📁 assets
-│   └── 🖼️ background.png
-├── 📁 certs
-├── 📁 data
-│   ├── 📄 questions.json
-│   └── 📄 scores.json
-├── 📄 certificate.py
-├── 📄 project.py
-├── 📄 quiz.py
-└── 📄 test_project.py
-```
+> 🌳 root_dir
+> ├── 📁 assets
+> │   └── 🖼️ background.png
+> ├── 📁 certs
+> ├── 📁 data
+> │   ├── 📄 questions.json
+> │   └── 📄 scores.json
+> ├── 📄 certificate.py
+> ├── 📄 project.py
+> ├── 📄 quiz.py
+> └── 📄 test_project.py
 
 ##### Installation
 
 To run this project, you need to install the aforementioned dependencies. Open the terminal and type the following command:
 
-```
-bashCopy code
+```bash
 python -m pip install -r requirements.txt
 ```
 
@@ -83,7 +80,6 @@ python -m pip install -r requirements.txt
 
 To finally run it, simply type:
 
-```
-shellCopy code
+```bash
 python project.py
 ```
