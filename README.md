@@ -30,7 +30,7 @@ A user with a score ≤ 80 will receive a certificate after confirming the promp
 
 This feature displays the historical ranking of users based on their scores. Scores are data that are written in `scores.json` after every successful session or after a user finishes the game. When executed, the file `scores.json` is loaded as a Python dictionary, converted to a data frame, and then formatted as a table using the tabulate library.
 
-##### Components
+#### Components
 
 | Component              | Location       | Description                                                  |
 | ---------------------- | -------------- | ------------------------------------------------------------ |
@@ -45,7 +45,7 @@ This feature displays the historical ranking of users based on their scores. Sco
 | show_post_quiz_results | project.py     | This method shows the post-quiz results to the user and offers the option to view the results, claim a certificate, and go back to the menu. It also calls the dump_scores method of the Results class to store the user's score. |
 | view_high_scores       | project.py     | This method reads the scores from a JSON file, sorts them in descending order, and displays them in a tabular format using the tabulate library. If there are no scores, it notifies the user. |
 
-##### Dependencies
+#### Dependencies
 
 The following is a list of dependencies required to run this project:
 
@@ -54,21 +54,19 @@ The following is a list of dependencies required to run this project:
 - PyInquirer == 1.0.3
 - tabulate == 0.9.0
 
-##### File Structure
+#### File Structure
 
-`🌳 root_dir`
-`├── 📁 assets`
-`│   └── 🖼️ background.png`
-`├── 📁 certs`
-`├── 📁 data`
-`│   ├── 📄 questions.json`
-`│   └── 📄 scores.json`
-`├── 📄 certificate.py`
-`├── 📄 project.py`
-`├── 📄 quiz.py`
-`└── 📄 test_project.py`
-
-##### Installation
+root_dir
+├── assets
+│   └── background.png
+├── certs
+├── data
+│   ├── questions.json
+│   └── scores.json
+├── certificate.py
+├── project.py
+├── quiz.py
+└── test_project.py
 
 To run this project, you need to install the aforementioned dependencies. Open the terminal and type the following command:
 
@@ -76,7 +74,7 @@ To run this project, you need to install the aforementioned dependencies. Open t
 python -m pip install -r requirements.txt
 ```
 
-##### Run
+#### Run
 
 To finally run it, simply type:
 
