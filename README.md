@@ -56,7 +56,9 @@ The following is a list of dependencies required to run this project:
 
 #### File Structure
 
-🌳 root_dir
+-------------------------------------
+
+`🌳 root_dir
 ├── 📁 assets
 │   └── 🖼️ background.png
 ├── 📁 certs
@@ -66,7 +68,9 @@ The following is a list of dependencies required to run this project:
 ├── 📄 certificate.py
 ├── 📄 project.py
 ├── 📄 quiz.py
-└── 📄 test_project.py
+└── 📄 test_project.py`
+
+-------------------------------------
 
 #### Installation
 
